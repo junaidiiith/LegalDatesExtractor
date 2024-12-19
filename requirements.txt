@@ -1,7 +1,7 @@
-time
 PyPDF2
 streamlit
 openai
 python-docx
 langchain-text-splitters
 stqdm
+watchdog
