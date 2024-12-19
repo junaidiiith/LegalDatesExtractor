@@ -87,7 +87,7 @@ def get_document_dates():
 	if not text:
 		st.error("No text found in the document.")
 		return
-	
+	text = text["text"]
 	doc_dates = st.session_state.get("doc_dates", None)
 
 	if not doc_dates:
@@ -112,28 +112,31 @@ def get_document_text():
 	uploaded_doc = st.session_state.get("doc_file", None)
 	if not uploaded_doc:
 		return
+	
 	if uploaded_doc.name.endswith(".pdf"):
 		text = pdf_to_markdown(uploaded_doc)
-		st.markdown(f"### Uploaded document {uploaded_doc.name} Info")
-		
-		num_pages = len(text.split('\n'))
-		st.write(f"Number of pages: {num_pages}")
-		st.write(f"Number of words: {len(text.split())}")
 
+		st.session_state["doc_text"] = {
+			"name": uploaded_doc.name,
+			"text": text,
+			"details": f"Number of pages: {len(text.split('\n'))}\nNumber of words: {len(text.split())}"
+		}
 		
 	elif uploaded_doc.name.endswith(".docx"):
 		doc = Document(uploaded_doc)
 		text = "\n".join([p.text for p in doc.paragraphs if p.text.strip()])
-		
-		st.markdown(f"### Uploaded document {uploaded_doc.name} Info")
-		st.write(f"Number of paragraphs: {len(doc.paragraphs)}")
-		st.write(f"Number of words: {len(' '.join([p.text for p in doc.paragraphs]).split())}")
+
+		st.session_state["doc_text"] = {
+			"name": uploaded_doc.name,
+			"text": text,
+			"details": f"Number of paragraphs: {len(doc.paragraphs)}\nNumber of words: {len(' '.join([p.text for p in doc.paragraphs]).split())}"
+		}
 		
 	else:
 		st.error("Invalid file format. Only .docx and .pdf files are supported.")
 		return
 
-	st.session_state["doc_text"] = text
+
 
 def pdf_to_markdown(pdf_file):
     # Initialize the PDF reader
@@ -148,6 +151,14 @@ def pdf_to_markdown(pdf_file):
     return "\n".join(texts)
 
 
+def print_document_details():
+	doc_text = st.session_state.get("doc_text", None)
+	if not doc_text:
+		return
+
+	st.markdown(f"### Uploaded document {doc_text['name']} Info")
+	st.write(doc_text["details"])
+
 
 def reset():
 	st.session_state["doc_text"] = None
@@ -157,15 +168,18 @@ def reset():
 
 def main():
 	st.title("Legal Document Dates Extractor")
-	st.file_uploader("Upload a document", type=["docx", "pdf"], key="doc_file")
-	doc = st.session_state.get("doc_file", None)
-	if doc:
-		get_document_text()
+
+	with st.expander("Size of text to process at once"):
 		cols = st.columns(2)
 		cols[0].number_input("Chunk size", value=5000, key="chunk_size", help="The size of the text to be processed at a time. Default is 5000.")
 		cols[1].number_input("Chunk overlap", value=50, key="chunk_overlap", help="The overlap between chunks. Default is 50.")
-		
-		
+
+	st.file_uploader("Upload a document", type=["docx", "pdf"], key="doc_file", on_change=get_document_text)
+	doc = st.session_state.get("doc_file", None)
+
+
+	if doc:
+		print_document_details()
 		cols = st.columns(3)
 		
 		extract_dates = cols[0].button("Extract dates and details", key="extract_dates", on_click=get_document_dates)
