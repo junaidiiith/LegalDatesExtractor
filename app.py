@@ -21,7 +21,11 @@ def get_dates_details(text, messages=None):
 
 	prompt = \
 	f"""
-	You need to extract the dates and the details about what happened on that date from the following text:
+	You need to extract the dates and the details about what happened on that date. 
+	Provide empty string in case there are no dates present.
+	Any date that involves an event should be extracted.
+
+	Extract the dates from the following text:
 	{text}
 
 	Example: 
