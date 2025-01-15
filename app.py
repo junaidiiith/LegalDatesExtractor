@@ -1,4 +1,3 @@
-import time
 import PyPDF2
 import streamlit as st
 
@@ -166,8 +165,20 @@ def reset():
 	st.session_state["doc_dates_refined"] = None
 	
 
+def transcript_audio(audio_file):
+    with st.spinner("Transcribing audio..."):
+        transcript = openai.audio.transcriptions.create(
+			model=st.secrets["OPENAI_AUDIO_MODEL"],
+			file=audio_file,
+			language="en",
+			prompt="Transcribe the following audio, provide timestamps with timestamps according to the format: [timestamp] text",
+		)
+    
+    return transcript.text
+    
+
 def main():
-	st.title("Legal Document Dates Extractor")
+	st.title("Legal Document Dates Extractor and Transcriber")
 
 	with st.expander("Size of text to process at once"):
 		cols = st.columns(2)
@@ -176,7 +187,14 @@ def main():
 
 	st.file_uploader("Upload a document", type=["docx", "pdf"], key="doc_file", on_change=get_document_text)
 	doc = st.session_state.get("doc_file", None)
+ 
+	audio_file = st.file_uploader("Upload an Audio to transcribe", type=["mp3", "wav", "m4a"], key="audio_file")
 
+	if audio_file:
+		transcript = transcript_audio(audio_file=audio_file)
+		st.markdown("### Transcribed text")
+		st.write(transcript)
+	
 
 	if doc:
 		print_document_details()
