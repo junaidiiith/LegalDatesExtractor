@@ -1,7 +1,15 @@
 PyPDF2
 streamlit
+streamlit_authenticator
 openai
 python-docx
 langchain-text-splitters
 stqdm
 watchdog
+python-dotenv
+llama_index
+llama-index-vector-stores-chroma
+chromadb
+llama-index-llms-fireworks
+llama-index-embeddings-fireworks
+llama-index-embeddings-openai

@@ -1,0 +1,20 @@
+cookie:
+  expiry_days: 1
+  key: dsfjkdsh9032ur0923yr7982y39823ybc1837f2189bvc1ugc8b
+  name: streamlit_auth
+credentials:
+  usernames:
+    afreen:
+      email: afreen@llm4modeling.com
+      name: Afreen B.
+      password: $2b$12$CsPe2rOppVyLIhO21grFK.mgT3syJf53ZLy1FjKIhute8PJwbid2C
+      pw: 123
+      roles: 
+        - viewer
+
+    junaid:
+      email: syed.juned.ali@tuwien.ac.at
+      name: Junaid Ali
+      password: '$2b$12$mSnI7q5ft5qCkXtj7McDjOHZl0k2lafmAGi755pTTW.1TKd8dVw.K'
+      roles:
+      - admin
