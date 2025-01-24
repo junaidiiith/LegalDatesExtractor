@@ -6,37 +6,36 @@ import os
 from llama_index.core.llms import ChatMessage
 from app_utils.constants import *
 from dotenv import load_dotenv
-
-load_dotenv()
+import streamlit as st
 
 
 def get_llm():
-    llm_type = os.getenv(LLM_TYPE)
+    llm_type = st.secrets[LLM_TYPE]
     if llm_type == OPENAI:
         return OpenAI(
-            model=os.getenv(OPENAI_MODEL),
-            api_key=os.getenv(OPENAI_API_KEY)
+            model=st.secrets[OPENAI_MODEL],
+            api_key=st.secrets[OPENAI_API_KEY]
         )
     elif llm_type == FIREWORKS:
         return Fireworks(
-            model=os.getenv(FIREWORKS_LLM),
-            api_key=os.getenv(FIREWORKS_API_KEY)
+            model=st.secrets[FIREWORKS_LLM],
+            api_key=st.secrets[FIREWORKS_API_KEY]
         )
     else:
         raise ValueError(f"Unknown LLM type: {llm_type}")
 
 
 def get_embed_model():
-    embed_model_type = os.getenv(EMBED_MODEL_TYPE)
+    embed_model_type = st.secrets[EMBED_MODEL_TYPE]
     if embed_model_type == OPENAI:
         return OpenAIEmbedding(
-            api_key=os.getenv(OPENAI_API_KEY),
-            embed_batch_size=os.getenv(EMBED_BATCH_SIZE, 16)
+            api_key=st.secrets[OPENAI_API_KEY],
+            embed_batch_size=st.secrets[EMBED_BATCH_SIZE, 16]
         )
     elif embed_model_type == FIREWORKS:
         return FireworksEmbedding(
-            api_key=os.getenv(FIREWORKS_API_KEY),
-            embed_batch_size=os.getenv(EMBED_BATCH_SIZE, 16)
+            api_key=st.secrets[FIREWORKS_API_KEY],
+            embed_batch_size=st.secrets[EMBED_BATCH_SIZE, 16]
         )
     else:
         raise ValueError(f"Unknown embedding model type: {embed_model_type}")
