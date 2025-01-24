@@ -7,14 +7,13 @@ credentials:
     afreen:
       email: afreen@llm4modeling.com
       name: Afreen B.
-      password: $2b$12$CsPe2rOppVyLIhO21grFK.mgT3syJf53ZLy1FjKIhute8PJwbid2C
-      pw: 123
+      password: '$2b$12$D8NYk2N/UfLehb4PWUqPhenXq53G8.8UiDpmMBV4ALz19w3wsDa5q'
       roles: 
         - viewer
 
     junaid:
       email: syed.juned.ali@tuwien.ac.at
       name: Junaid Ali
-      password: '$2b$12$mSnI7q5ft5qCkXtj7McDjOHZl0k2lafmAGi755pTTW.1TKd8dVw.K'
+      password: '$2b$12$D8NYk2N/UfLehb4PWUqPhenXq53G8.8UiDpmMBV4ALz19w3wsDa5q'
       roles:
       - admin

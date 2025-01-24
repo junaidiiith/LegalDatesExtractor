@@ -13,7 +13,7 @@ def run_pages(pages):
 auth_utils.authenticate(auth_file=auth_file)
 
 if st.session_state['authentication_status']:
-    print("Authentication status: Now", st.session_state['authentication_status'])
+    # print("Authentication status: Now", st.session_state['authentication_status'])
     username = st.session_state['username']
     name = st.session_state['name']  
     roles = st.session_state['roles']
@@ -23,3 +23,6 @@ if st.session_state['authentication_status']:
         st.Page("app_pages/transcript_generation.py", title="Transcript Generation"),
         st.Page("app_pages/pdf_summarization.py", title="PDF Summarization"),
     ]
+
+    run_pages(pages)
+    

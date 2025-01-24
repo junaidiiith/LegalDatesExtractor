@@ -1,6 +1,7 @@
 import PyPDF2
 import streamlit as st
 from docx import Document
+from streamlit.runtime.uploaded_file_manager import UploadedFile
 
 
 
@@ -19,14 +20,23 @@ def pdf_to_markdown(pdf_file):
 
 
 def get_document_text():
-	uploaded_doc = st.session_state.get("doc_file", None)
+	uploaded_doc: UploadedFile = st.session_state.get("doc_file", None)
 	if not uploaded_doc:
 		return
+
+	if uploaded_doc.name.endswith(".txt"):
+		print(uploaded_doc)
+		text = uploaded_doc.read().decode("utf-8")
+		st.session_state["doc"] = {
+			"name": uploaded_doc.name,
+			"text": text,
+			"details": f"Number of lines: {len(text.splitlines())}\nNumber of words: {len(text.split())}"
+		}
 	
-	if uploaded_doc.name.endswith(".pdf"):
+	elif uploaded_doc.name.endswith(".pdf"):
 		text = pdf_to_markdown(uploaded_doc)
 
-		st.session_state["doc_text"] = {
+		st.session_state["doc"] = {
 			"name": uploaded_doc.name,
 			"text": text,
 			"details": f"Number of pages: {len(text.split('\n'))}\nNumber of words: {len(text.split())}"
@@ -36,7 +46,7 @@ def get_document_text():
 		doc = Document(uploaded_doc)
 		text = "\n".join([p.text for p in doc.paragraphs if p.text.strip()])
 
-		st.session_state["doc_text"] = {
+		st.session_state["doc"] = {
 			"name": uploaded_doc.name,
 			"text": text,
 			"details": f"Number of paragraphs: {len(doc.paragraphs)}\nNumber of words: {len(' '.join([p.text for p in doc.paragraphs]).split())}"

@@ -5,6 +5,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from stqdm import stqdm
 
 from app_utils.doc_processing import get_document_text, print_document_details
+from settings import CHUNK_OVERLAP, CHUNK_SIZE
 
 
 model = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -82,16 +83,16 @@ def refine_dates_texts():
 
 
 def get_document_dates():
-	text = st.session_state.get("doc_text", None)
-	if not text:
+	doc = st.session_state.get("doc", None)
+	if not doc or not doc.get("text", None):
 		st.error("No text found in the document.")
 		return
-	text = text["text"]
+	text = doc["text"]
 	doc_dates = st.session_state.get("doc_dates", None)
 
 	if not doc_dates:
-		chunk_size = st.session_state.get("chunk_size", 5000)
-		chunk_overlap = st.session_state.get("chunk_overlap", 50)
+		chunk_size = st.session_state.get("chunk_size", CHUNK_SIZE)
+		chunk_overlap = st.session_state.get("chunk_overlap", CHUNK_OVERLAP)
 		text_splitter = RecursiveCharacterTextSplitter(
 			chunk_size=chunk_size, 
 			chunk_overlap=chunk_overlap
@@ -108,7 +109,7 @@ def get_document_dates():
 
 
 def reset():
-	st.session_state["doc_text"] = None
+	st.session_state["doc"] = None
 	st.session_state["doc_dates"] = None
 	st.session_state["doc_dates_refined"] = None
 	
@@ -116,15 +117,15 @@ def reset():
 def main():
 	st.title("Legal Document Dates Extractor")
 
-	with st.expander("Size of text to process at once"):
-		cols = st.columns(2)
-		cols[0].number_input("Chunk size", value=5000, key="chunk_size", help="The size of the text to be processed at a time. Default is 5000.")
-		cols[1].number_input("Chunk overlap", value=100, key="chunk_overlap", help="The overlap between chunks. Default is 50.")
+	# with st.expander("Size of text to process at once"):
+	# 	cols = st.columns(2)
+	# 	cols[0].number_input("Chunk size", value=5000, key="chunk_size", help="The size of the text to be processed at a time. Default is 5000.")
+	# 	cols[1].number_input("Chunk overlap", value=100, key="chunk_overlap", help="The overlap between chunks. Default is 50.")
 
 	st.file_uploader("Upload a document", type=["docx", "pdf"], key="doc_file", on_change=get_document_text)
 	doc = st.session_state.get("doc_file", None)
- 
-
+	
+	extract_dates, refine_dates = False, False
 	if doc:
 		print_document_details()
 		cols = st.columns(3)
@@ -132,17 +133,18 @@ def main():
 		extract_dates = cols[0].button("Extract dates and details", key="extract_dates", on_click=get_document_dates)
 		refine_dates = cols[1].button("Refine dates and details", key="refine_dates", on_click=refine_dates_texts)
 		cols[2].button("Reset Document", key="reset", on_click=reset)
-
-		if extract_dates:
-			with st.container():
-				doc_dates = st.session_state.get("doc_dates")
-				st.markdown("### Extracted dates and details\n" + doc_dates)
-				st.session_state["doc_dates"] = doc_dates
 		
-		if refine_dates:
-			with st.container():
-				doc_dates_refined = st.session_state.get("doc_dates_refined")
-				st.markdown("### Refined dates and details")
-				st.write(doc_dates_refined)
+
+	if extract_dates or st.session_state.get("doc_dates", None):
+		with st.container():
+			doc_dates = st.session_state.get("doc_dates")
+			st.markdown("### Extracted dates and details\n" + doc_dates)
+			st.session_state["doc_dates"] = doc_dates
+	
+	if refine_dates or st.session_state.get("doc_dates_refined", None):
+		with st.container():
+			doc_dates_refined = st.session_state.get("doc_dates_refined")
+			st.markdown("### Refined dates and details")
+			st.write(doc_dates_refined)
 
 main()
