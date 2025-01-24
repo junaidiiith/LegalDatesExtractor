@@ -65,13 +65,18 @@ def create_index():
     with st.spinner("Indexing Document..."):
         create_index_from_document(doc_text, index_name=username)
     st.session_state["doc_indexed"] = True
-    
+
+
+def extract_doc_data():
+    reset()
+    get_document_text()
+
 
 def main():
     username = st.session_state['username']
     st.title("PDF Document Summarization")
 
-    st.file_uploader("Upload a document", type=["docx", "pdf", "txt"], key="doc_file", on_change=get_document_text)
+    st.file_uploader("Upload a document", type=["docx", "pdf", "txt"], key="doc_file", on_change=extract_doc_data)
     doc = st.session_state.get("doc_file", None)
  
 

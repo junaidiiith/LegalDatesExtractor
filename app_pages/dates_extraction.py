@@ -113,6 +113,13 @@ def reset():
 	st.session_state["doc_dates"] = None
 	st.session_state["doc_dates_refined"] = None
 	
+ 
+ 
+def extract_doc_data():
+    reset()
+    get_document_text()
+
+ 
     
 def main():
 	st.title("Legal Document Dates Extractor")
@@ -122,7 +129,7 @@ def main():
 	# 	cols[0].number_input("Chunk size", value=5000, key="chunk_size", help="The size of the text to be processed at a time. Default is 5000.")
 	# 	cols[1].number_input("Chunk overlap", value=100, key="chunk_overlap", help="The overlap between chunks. Default is 50.")
 
-	st.file_uploader("Upload a document", type=["docx", "pdf"], key="doc_file", on_change=get_document_text)
+	st.file_uploader("Upload a document", type=["docx", "pdf"], key="doc_file", on_change=extract_doc_data)
 	doc = st.session_state.get("doc_file", None)
 	
 	extract_dates, refine_dates = False, False
