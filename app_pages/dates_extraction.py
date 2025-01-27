@@ -1,10 +1,13 @@
 import streamlit as st
 
 import openai
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from stqdm import stqdm
 
-from app_utils.doc_processing import get_document_text, print_document_details
+from app_utils.doc_processing import (
+    get_document_text, 
+    print_document_details, 
+    get_nodes_from_documents
+)
 from settings import CHUNK_OVERLAP, CHUNK_SIZE
 
 
@@ -91,14 +94,7 @@ def get_document_dates():
 	doc_dates = st.session_state.get("doc_dates", None)
 
 	if not doc_dates:
-		chunk_size = st.session_state.get("chunk_size", CHUNK_SIZE)
-		chunk_overlap = st.session_state.get("chunk_overlap", CHUNK_OVERLAP)
-		text_splitter = RecursiveCharacterTextSplitter(
-			chunk_size=chunk_size, 
-			chunk_overlap=chunk_overlap
-		)
-		texts = text_splitter.split_text(text)
-		
+		texts = [n.text for n in get_nodes_from_documents(text)]
 		messages = None
 
 		for text in stqdm(texts, desc="Extracting dates and details"):

@@ -1,0 +1,382 @@
+# Developing a Systemic Textual Analysis Methodology Based on the Human Activity System Modelling Language of Soft Systems Methodology (SSM)
+
+Giles A. Hindle*
+
+Warwick Business School, University of Warwick, Coventry, CV4 7AL, UK
+
+The paper introduces a textual analysis methodology which utilizes a systemic concept and a modified version of the systems modelling language from soft systems methodology (SSM). For ease of reference, the methodology is referred to as the systemic textual analysis methodology (STAM). Following trends in hermeneutics and linguistics, STAM balances objective and subjective aspects of the process of textual analysis by using the notion of a ‘recoverable’ textual analysis. STAM can be used in a wide range of Management Science and qualitative research projects, but is presented in this paper in a form suitable for the analysis of texts which constitute formal descriptions of processes or methodologies. Such analysis supports critical evaluation of texts in terms of characteristics such as content, descriptive quality, logical structure, overall coherence and completeness. The basic tenet of STAM is that textual data can be represented as a set of activities, and therefore conceptualized as an activity system. STAM operationalizes this approach in the form of a six-step process. The paper includes a simplistic exemplification of STAM where it is used to analyze a short piece of text. Copyright # 2007 John Wiley & Sons, Ltd.
+
+Keywords: soft systems methodology; textual analysis; discourse analysis; systems modelling; evaluation of methodologies
+
+# INTRODUCTION
+
+This paper presents a textual analysis methodology which utilizes the human activity system (HAS) concept from soft systems methodology (SSM) (Checkland, 1981; Wilson, 1984) together with a modified version of the HAS modelling language. For ease of reference, the methodology will be referred to as the systemic textual analysis methodology (STAM).
+
+Textual or ‘discourse’ analysis is a core activity for researchers in a wide range of academic social sciences. Areas of particular relevance to disciplines within management, the arts and the
+
+* Correspondence to: Giles A. Hindle, Warwick Business School, University of Warwick, Coventry, CV4 7AL, UK. E-mail: Giles.Hindle@wbs.ac.uk
+# RESEARCH PAPER
+
+# Syst. Res.
+
+STAM, however, are interpretive approaches to management research (Easterby-Smith et al., 2002), applied discourse analysis (Willig, 1999) and the softer end of Operational Research/Management Science practice (Rosenhead and Mingers, 2001; Jackson, 2003; Pidd, 2003). Whilst STAM, therefore, has a wide range of potential application areas, to aid exposition of the methodology in this paper and to accurately document its initial period of development, STAM is presented here in a form suitable for the analysis of a particular type of text; namely, written texts which constitute formal descriptions of processes or methodologies. A short exemplification of the methodology is also provided; again, to aid exposition of the methodology.
+
+The paper is split into four main sections. The Section (The Research Programme of Stam) introduces the research programme of STAM. The Section (An Historical Review of Textual Analysis) begins with an historical overview of textual analysis within the traditions of hermeneutics and linguistics in order to support a conceptualization of the process of textual analysis involving objective, subjective and contextual elements (Conceptualizing the Process of Textual Analysis). The notion of a ‘recoverable’ textual analysis using HAS modelling is then presented in the Sub Section (Recoverability) as a solution to the problem of how to ‘balance’ the objective and subjective features of the process of textual analysis. The next Sub Section presents STAM itself; first, by outlining the use of HAS modelling for textual analysis (Textual Analysis Using HAS Modelling), second describing the steps of STAM in detail (A Systemic Methodology for Textual Analysis (STAM)) and finally giving a short illustrative application of the methodology (An Illustration of the Methodology). The final section (Concluding Remarks) gives concluding remarks and outlines of further research.
+
+# THE RESEARCH PROGRAMME OF STAM
+
+STAM was initially developed for the analysis of published academic texts within the discipline of Management Science. Specifically, the analysis of texts which constitute formal descriptions of processes, methods or methodologies. For example, Jenkins (1969), ‘The Systems Approach’, which describes a Systems Engineering methodology developed at Lancaster University in the UK, was considered a suitable text for analysis. The purpose of the textual analysis was to support (a) critical evaluation of the chosen texts, (b) analysis of the historical development of methodologies over time and (c) discussion on the formal presentation of methods and methodologies (Hindle, 2003).
+
+STAM was developed in such a way as to provide a rigorous analytical platform for critical evaluation in terms of textual characteristics (Nunan, 1993) such as:
+
+- Content—what activities does the text prescribe?
+- Descriptive quality—are the activities clearly described in the text?
+- Logical structure—are activities logically ordered in the text?
+- Overall identity and coherence—what identity do the activities presented in the text generate as a whole and is this coherent?
+- Completeness—given a particular interpretation of the identity of the methodology described in the text, do there appear to be any activities missing?
+
+The initial stages of the research programme of STAM were exploratory in nature. In order to develop a relatively stable first version of STAM, the research employed an ‘evolutionary’ research approach involving a combination of literature review—in the area of textual analysis, internal piloting—use of the methodology by the author on several texts and external testing—having several different users try the methodology in practice.
+
+The research programme involved the following four main steps:
+
+1. Create an initial version of STAM using an adapted version of the HAS modelling language. This process was informed by a literature review of the discipline of textual analysis.
+
+Copyright © 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+
+Giles A. Hindle
+# Syst. Res.
+
+# RESEARCH PAPER
+
+1. Pilot the initial version of STAM on a set of methodological texts. Each pilot application was slightly different due to differences in the target texts and each generated new learning regarding the development of STAM.
+2. Based on the piloting process, test a developed version of STAM with several users to see how the method would be used by analysts other than the author.
+3. Finally, examine extensions and applications of STAM in a preliminary way in order to identify further opportunities for research. The research design is represented diagrammatically in Figure 1.
+
+Despite the initial area of application of STAM being the critical evaluation and historical development of methods and methodologies, the research programme has examined three other areas of application. Firstly, STAM can be used to support the comparison of different texts; for example, the comparison of different methodologies. Secondly, STAM can be used in a more interpretative or creative mode in order to (a) redesign existing texts, (b) design new texts and (c) generate rigorous alternative interpretations of textual data based upon explicit theoretical positions or ‘worldviews’. Thirdly, the approach can make a useful contribution to the growing use of systems modelling and problem structuring methods (PSMs) within applied research.
+
+# Figure 1. Research design for the development of STAM projects
+
+(Hindle et al., 1995; de Meij, 1997; Checkland, 1997; Franco and Hindle, 2007).
+
+# AN HISTORICAL REVIEW OF TEXTUAL ANALYSIS
+
+This section gives a brief historical review of textual analysis based upon the disciplines of hermeneutics and linguistics. The purposes being (a) to give support to the conceptualization of the process of textual analysis developed in Sub Section Conceptualizing the Process of Textual Analysis and (b) to give support to the argument, based upon Lehtonen (2000) that it is feasible and desirable to develop a methodology for textual analysis which is able to ‘balance’ objective and subjective features of the process of textual analysis (Sub Section Recoverability).
+
+Appreciation of the process of textual analysis might start with Hermes, the mythological messenger God of the Greeks, who, when faced with the momentous task of delivering the Gods’ messages to mere mortals, needed to first interpret the Gods’ messages and then translate and explicate their meaning in a language normal people could understand. This was considered a ‘hermeneutic’ task requiring considerable expertise, (hermeneuein, Greek, ‘to interpret’). Aristotle also used the same term within the title for one of his works (Peri Hermeneias) where he examined the logic of statements, that is, the grammatical structures through which subject and predicate are connected in language. However, it was not until after the Renaissance and Reformation that ‘hermeneutics’ became a special discipline in the hands of the Protestant hermeneuticians, and formal methods for textual analysis were developed (Mueller-Vollmer, 1994).
+
+Faced with the Catholic Church’s insistence on their authority regarding the interpretation of the Holy Scriptures, 16th century Protestants, such as Matthias Flacius Illyricus, presented principles of perspicuity and argued for the self-sufficiency of the holy text. Illyricus argued the Scriptures contained internal coherence and continuity and therefore, if they had not been properly understood as yet, it was more a reflection on the knowledge and ability of the analysts than on the texts themselves.
+
+Copyright ß 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+# RESEARCH PAPER
+
+# Syst. Res.
+
+The emergence of further developments in hermeneutics may be traced back to developments in philosophy during the 18th century Enlightenment. In a similar manner to Aristotle and the Protestant hermeneuticians, Enlightenment philosophers, such as Wolff and Chladenius, viewed hermeneutic problems as belonging to the domain of logic and set about determining a set of generally applicable rules and principles that would be valid for all fields of knowledge which relied on the practice of textual analysis. The meaning of a text ought not to be problematic, they argued, as language, if used properly, would always faithfully communicate the intended meaning of the author. Ambiguity of text could only be due to an incorrect use of language, unclear definition of terms or poor construction of arguments by the author (Mueller-Vollmer, 1994).
+
+More recent approaches to textual analysis within hermeneutics have developed considerably from these early views of textual analysis as being concerned with the ‘correct’ (or objective) analysis of texts. Contributions from researchers such as Schleiermacher, Humboldt, Droysen, Boeckt, Dilthey, Ricoeur, Heidegger and Gadamer (Burrell and Morgan, 1979; Mueller-Vollmer, 1994) led to positions which increasingly adopted interpretive considerations. Such positions stemmed from a growing awareness of the subjective, linguistic and contextual influences on the symbiotic processes of textual production (by the author) and textual analysis (by the reader).
+
+A similar shift from objective analysis towards more interpretive considerations has been emerging within the discipline of linguistics (Brown and Yule, 1983). As with Anglo-American analytical philosophy (Martinich, 1996; Youle, 1996), linguistics has, traditionally, been primarily concerned with objective and grammatical features of the text—that is, the logic of words, sentences and paragraphs. More recently, however, linguistics has been exploring the relevance and applicability of its methods at deeper levels—for example, coherence, meaning, interpretation and so on. These tensions are illustrated in the quotes below.
+
+Sinclair (1994) states:
+
+‘We should not impose our ideas on it (the text), except, perhaps, just to get started. We should only apply loose and flexible frameworks until we see what the preliminary results are in order to accommodate the new information that will come from the text’.
+
+In contrast, Enkvist (1989) states:
+
+‘Text interpretation is a hermeneutic process. We must have a whole, a universe of discourse, before we can see how its parts fit together and cohere. In a process model this suggests a top-down heuristic’.
+
+These quotes are indicative of current debate within linguistics concerning the balance that should be struck between the more prevalent analytical/positivistic and the more recently adopted hermeneutic approaches; bottom-up ‘open-minded’ versus top-down interpretive approaches; concerns for verification versus concerns for social relevance and so on. Such differences of perspective are directly mirrored in the research described here and help to clarify and confirm the desirability of approaches that seek to ‘balance’ contrasting methodologies.
+
+In summary, many methods and approaches are evident in the literature from the fields of linguistics and hermeneutics, but there are a number of similar themes. Early approaches from both linguistics and hermeneutics tend to focus on the text itself, looking for objective features and examining the logic of language. There is an underlying assumption there ought to be a ‘correct’ (objective) meaning of a particular text so long as both author and analyst have fulfilled their roles competently.
+
+Later approaches have given the process of textual interpretation much greater attention and have uncovered serious difficulties with the assumptions underlying an objective textual analysis. These difficulties include (i) separation between the context of the production of the text and the context of the analysis, (ii) subjective elements in the interpretation of the text by the analyst (iii) the constraining (and controlling) nature of the language system being used and (iv) the relationship between a particular sentence and the overall meaning of a piece of text.
+
+Copyright ß 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+# RESEARCH PAPER
+
+Researchers from both hermeneutic and linguistic perspectives have been seeking to develop methods for textual analysis which are able to ‘balance’ these objective and subjective elements within a formal process of analysis Lehtonen (2000). The methodology developed in this research has also attempted to achieve this balance.
+
+# Conceptualizing the Process of Textual Analysis
+
+This section outlines a conceptualization of the process of textual analysis and identifies the key elements, as shown in Figure 2. A fundamental distinction is made between the context of production and the context of analysis (Gadamer, 1994; Lehtonen, 2000). Any text will be produced by an author(s) within a particular context. Elements of this context will include the author’s perspective (or Weltanschauung), the genre of production (purpose, style, format of the text), the physical production (the text itself as a physical entity), the historical context (the culture of work/society and the author’s working environment) and the language system used. The total effect of these elements (and others) will amount to a unique context for the production of each text. The context might be characterized by the analyst, but never defined absolutely (Gadamer, 1994). Even a second analysis by the same analyst would necessarily take place in a different context.
+
+The text links these two contexts. The text might be considered to remain reasonably consistent, but even here changes are likely between production and analysis. At the very least, the physical production of the text (in terms of paper, printing, font, form of publication) is likely to be different, unless the analyst has access to the original script of the author. There may also be changes to the wording of the text due to copyediting, translation or different versions or editions of the text (Brown and Yule, 1983).
+
+# Recoverability
+
+This paper argues, following Lehtonen (2000), it is feasible and desirable to develop a methodology for textual analysis which is able to ‘balance’ objective and subjective aspects of the process of textual analysis. Such a methodology, whilst unable to produce an objective analysis of a piece of text, should nevertheless be applied in a traditional analytical mode. The analysis should link closely to the physical reality of the text—the letters, words and sentences—whilst synchronously being conscious of the interpretive and contextual elements within the steps of the analysis.
+
+It is argued a solution to the need for a methodology for textual analysis which is able to balance analytical and interpretive elements can.
+
+Copyright © 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+# RESEARCH PAPER
+
+# Syst. Res.
+
+be found using the notion of ‘recoverability’, as discussed by Checkland and Holwell (1998). Checkland and Holwell present an argument for a form of validation for Action Research which ‘can sustain action research (AR) as a legitimate form of enquiry which can be defended’. Their claim of validity for AR is based upon the notion of a recoverable research process involving the prior declaration of an epistemology in terms of which knowledge findings can be expressed.
+
+Checkland and Holwell describe a spectrum of knowledge acquisition processes from natural science at the one end to research story telling at the other. They argue there will be different criteria along the spectrum for judging the ‘truth value’ of the outputs of the processes from ‘public repeatability’ in natural science (considered to be the strongest truth claim) to ‘plausibility’ in research story telling (considered to be much weaker). The challenge for Action Researchers, they argue, is to do better than settling for ‘plausibility’, simply because ‘the strong criterion of ‘‘repeatability’’ (of natural science) is beyond their reach’ (Checkland and Holwell, 1998).
+
+‘Our argument here is that the aim in AR [Action Research] should be to enact a process based upon a declared-in-advance methodology (encompassing a particular framework of ideas) in such a way that the process is recoverable by anyone interested in subjecting the research to critical scrutiny’. (Checkland and Holwell, 1998 p. 18)
+
+Checkland and Holwell give an example of a piece of research conducted in the National Health Service of the United Kingdom by a multidisciplinary team of researchers from Lancaster University (Hindle et al., 1995; Checkland, 1997) to illustrate their notion of a recoverable research process.
+
+‘The work used SSM in the sense-making ‘‘Mode 2’’ (Checkland and Scholes, 1990), with its particular framework of systemicity. The aim was to make clear to interested observers the thought processes and models which enabled the team to make their interpretations and draw their conclusions. Those observers might not accept the team’s interpretations; then a debate about the work could take place which was sufficiently well structured as to be coherent. The weaker ‘‘plausibility’’ criterion does not offer that prospect’. (Checkland and Holwell, 1998 p. 18)
+
+STAM uses the HAS modelling language in a similar sense-making mode (albeit modified) and claims to meet the same criterion of ‘recoverability’. The form of research, however, is clearly different. Rather than use the epistemology to document a ‘recoverable’ AR process, the epistemology is used to document a ‘recoverable’ textual analysis. The use of the epistemology is different, but the recoverability criterion remains unchanged. Hence, as with Checkland’s AR process, the textual analysis can be recovered by observers interested in subjecting the analysis to critical scrutiny. An interested observer may not agree with a particular textual analysis, but the analysis is produced in such a way as to enable a sufficiently well-structured debate.
+
+# TEXTUAL ANALYSIS USING HAS MODELLING
+
+The texts analyzed within the piloting process of STAM were formal descriptions of Management Science methods or methodologies. Such texts take the general format of prescriptions for action—that is, they present a coherent set of actions placed (hopefully) in a logical order. The prescribed actions, taken as a whole, can then be assumed to achieve some kind of coherent overall purpose; for example, the design of an optimum system specification or improvement to a problematic situation. These texts represent specialized versions of the oldest body of literature in existence: ‘the advice manual or written regimen, whose origins can be traced back through medieval texts on regimen sanitatis to Pathagoras’s dire written warnings on the dangers of consuming beans’ (Brown, 1999).
+
+STAM is based on the following assumptions—a textual description of a methodology
+
+Copyright ß 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+# Systemic Textual Analysis Methodology
+
+includes prescriptions for action; a set of actions, taken as a whole, constitutes a prescription for a process, which an observer may choose to conceptualize as a HAS. For example, a text prescribing a set of actions necessary to borrow a book from a library could be viewed as prescribing a process, which an observer could conceptualize as ‘A system to borrow a book from a library’.
+
+A text which gives a clear description of a set of activities which, taken as a whole, represent a clear transformation process (or purpose), will therefore be relatively straightforward to conceptualize as a HAS; that is, the process ‘underlying’ the author’s description of the method will map readily onto the HAS concept. And the reverse will be true. Difficulties will occur if the description of activities is unclear (to the observer) or the overall set of activities does not represent a clear or meaningful transformation process (to the observer).
+
+Hence, the application of a method using HAS modelling can enable a textual analysis—that is, the application can surface characteristics (perhaps perceived as ‘strengths’ and ‘weaknesses’) of a text, from the point of view of an observer. In other words, perceived strengths and weaknesses will be surfaced through the text’s ability to ‘fit in’ with the conceptual schema of the method—that is, the text must have clearly described activities and the set of activities (as a whole) must represent a clear and meaningful transformation process.
+
+# A Systemic Methodology for Textual Analysis (STAM)
+
+The version of STAM presented in this paper constitutes a six-step process (see Figure 4):
+
+|Identify Target Text|Generalize Problems|
+|---|---|
+|Construct Conceptual Model|Activity System Model|
+|Critically Evaluate Text based upon application of STAM| |
+
+Figure 3. Conceptual framework of STAM
+
+Figure 4. Six-step process of STAM
+
+Copyright ß 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007)
+
+DOI:10.1002/sres
+# RESEARCH PAPER
+
+# Step 1: Identify Target Text
+
+The text to be analyzed is referred to as the ‘target text’. A well-specified text is required in the sense the physical boundary of the text must be clear, that is, where it begins and where it ends. The text will be a complete description of a method or methodology (although other types of text may be possible). The text is assumed to be self-contained—contextual information relating to the production of the text or references to other texts cannot be included in the analysis. Each sentence in the target text is given a unique code for reference purposes.
+
+# Step 2: Generate Activity List
+
+The text is studied and the activities identified in the text are listed. In principle, there are no restrictions on the number of activities within the list. The level of detail will depend on the text and a judgement made by the analyst. Only activities identified by the analyst in the text are to be included in the list. Each activity must be referenced back to a sentence(s) in the target text.
+
+# Step 3: Note Problems of Interpretation
+
+The process of identifying activities described in the text will generate problems of interpretation. For example, the analyst may be unfamiliar with the language used by the author or may feel a particular activity is under specified or poorly described. Such problems are systematically recorded.
+
+# Step 4: Construct Conceptual Model 1
+
+The activities identified in Step 2 are arranged into a conceptual model using the normal rules of HAS modelling—logical dependency. No activities are to be added to the model which are not in the activity list. Activities may be discarded only if duplicated in the model. It may not be possible to complete the logical dependencies between all activities in the model, as activities may be perceived to be missing.
+
+# Step 5: Infer Human Activity System
+
+The analyst studies the conceptual model and infers an underlying HAS. In other words, the analyst considers the activities in the model as a set and perceives an overall transformation process. The HAS is defined using a root definition of the format ‘a system to do P by Q in order to achieve R’ (Checkland and Scholes, 1999). A CATWOE analysis is also produced by the analyst in order to facilitate construction of the root definition. The intention is to represent the HAS perceived as underlying the conceptual model as accurately as possible.
+
+# Step 6: Construct Conceptual Model 2
+
+Step 6 involves the construction of a second conceptual model according to the normal rules of HAS modelling—that is, an ideal type model based on the root definition in Step 5. It is worth noting that STAM runs the normal method of HAS modelling in reverse order (apart from Step 6). Normally, a user would start with an idea for an ideal-type HAS, articulate it with a root definition (and CATWOE) and then construct a conceptual model. Because the HAS would be ‘ideal’, both the root definition and the conceptual model would be ‘perfectly’ constructed from the point of view of the user—that is, the transformation process would be clear, the activities would be distinct and the structure of the model logically coherent. The six-step STAM process runs in the opposite direction. It starts (a) with the activities identified in the text, (b) places them in a conceptual model and then (c) infers a HAS. The analyst is likely to encounter ‘problems’ or perceive ‘weaknesses’ in the text at each stage of STAM. For example, the activities may be indistinct or difficult to interpret, the set of activities may form unclear, complex or multiple transformation processes, the conceptual model (Model 1) may include perceived ‘missing’ activities and the HAS may be difficult to define. Such ‘problems’, however, are vital to the success of the method, as they are regarded as being a product of the clash between text and systemic concept (although channelled by the interpretation of the text and application of STAM by the analyst). In other words, difficulties applying the method reflect characteristics of the text, from
+
+Copyright ß 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007)
+
+DOI:10.1002/sres
+# Syst. Res.
+
+# RESEARCH PAPER
+
+the point of view of the analyst. Such characteristics then form the basis of a critical evaluation of the text.
+
+# An Illustration of the Methodology
+
+In order to bring STAM to life, an illustration is given below. The illustration involves performing a short textual analysis aimed at identifying characteristics and weaknesses of the structure and production of a text entitled ‘borrowing regulations for a public library’. Relevant questions when performing such an analysis might be ‘What is the nature of the process the text is describing?’, ‘How clear is the text in its prescription?’, ‘Is the text well structured?’, ‘Are there any omissions in the text?’.
+
+# Step 1: Identify Target Text
+
+The target text is reproduced below in Figure 5. The text is in English, has 11 sentences and is 150 words long. No references are made to other texts. The target text is titled ‘borrowing regulations for a public library’ and appears to prescribe the actions necessary to borrow a book from a public library.
+
+# Step 2: Generate Activity List
+
+Step 2 involves studying the target text and identifying the activities prescribed by the author. The list of activities is numbered in the order they fall in the text and referenced to
+
+Figure 5. Target text used for illustration of STAM
+
+Copyright ß 2007 JohnWiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007)
+
+DOI:10.1002/sres
+# RESEARCH PAPER
+
+# Syst. Res.
+
+sentences in the target text. Results of the author’s analysis are shown below. Many activities are implied, but not specified (book search, joining library, etc.)
+
+# Step 2 Outputs: List of Activities
+
+1. Obtain details of the book (ISBN or title and author) (a,b),
+2. Obtain code and location of book using ‘library catalogue system’ (c),
+3. Find the book, if available (d),
+4. Appreciate you need a library card (e),
+5. Appreciate you need to be resident and have suitable ID (passport or driving license) to be a member of the library (f),
+6. Appreciate membership process takes 2 days (g),
+7. Reserve book if not available (h),
+8. Return book within loan period (fine is 10 p/day) (i),
+9. Appreciate loan period depends upon the category of book (j),
+10. Appreciate the library is open 9–5 Mon–Fri (k).
+
+It is imperative the list records activities described in the text, rather than activities the analyst feels ought to be in the text. The intention at this stage of the method is analytical; that is, to systematically record activities described by the author, not to ‘improve’ or change those activities. Any problems with interpretation of the text are noted at this point (Step 3).
+
+# Step 3: Note Problems of Interpretation
+
+The following problems of interpretation were noted during Stage 2:
+
+# Step 3 Outputs: Problems of Interpretation
+
+- What is the ISBN of a book?
+- It is unclear whether the user needs to search for book details.
+- The nature of the library catalogue system is unclear (card or computer; functionality?).
+- Details of book code and loan category are unclear.
+- Meaning of availability unclear (present in library or held in stock?).
+
+# Step 4: Construct Conceptual Model 1
+
+Step 4 involves the logical ordering of the activities in the list according to the normal rules of HAS modelling (logical dependency). Results of the author’s analysis are shown in Figure 6. Some of the activities in Figure 6 are left without their logical dependencies linked to other activities. This is because it appeared to the analyst that certain activities are missing from the model.
+
+# Step 5: Infer Human Activity System
+
+Step 5 involves inferring an underlying HAS based on the conceptual model in Step 4. To do this, the analyst studies the activities within the conceptual model and interprets the overall process those activities represent. A root definition of the form ‘a system to do P’ is used for illustrative purposes due to the simplicity of the target text.
+
+# Step 5 Outputs: The Root Definition Inferred From Model 1
+
+A system to borrow a book, within regulation Checklands, from a public library.
+
+# Step 6: Construct Conceptual Model 2
+
+Step 6 involves the construction of a conceptual model based upon the root definition in Step 5. Unlike Step 4, the model is constructed according to the normal rules of HAS modelling; that is, the analyst determines the activities needed to achieve the transformation process of the HAS defined by the root definition. Results of the author’s analysis are shown in Figure 7.
+
+Having completed the six steps of STAM, the analyst is now able to evaluate the target text in terms of three sets of properties:
+
+1. Quality of textual description: In Step 2, activities within the text were identified. There may be problems doing this, which may be due to perceived ‘weaknesses’ in the text—for example, poorly specified activities or unclear.
+
+Copyright © 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+
+Giles A. Hindle
+# RESEARCH PAPER
+
+# Figure 6. Step 4 outputs—conceptual Model 1
+
+description. These problems were noted in Step 3.
+
+# 2. Logical structure of the text:
+
+In step 4, the list of activities was logically ordered in a conceptual model. Comparison between this model and the order of the original list may highlight perceived ‘weaknesses’ in the structure of the original text.
+
+# 3. Completeness of the text:
+
+The inferring of a HAS and the resultant root definition and Conceptual Model 2 provide an ideal type concept with which to compare with Conceptual.
+
+Copyright ß 2007 JohnWiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+10991743a, 2007, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/sres.839 by Technische Universitaet Wien, Wiley Online Library on [23/01/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms‑and‑conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+# RESEARCH PAPER
+
+# Syst. Res.
+
+# Figure 7. Step 6 outputs—conceptual Model 2
+
+Copyright ß 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+
+610 Giles A. Hindle
+# Systemic Textual Analysis Methodology
+
+# Model 1
+
+Such a comparison may highlight perceived ‘weakness’ in the overall completeness of Conceptual Model 1 and, hence, the target text.
+
+# Author’s evaluation of target text based upon use of STAM:
+
+1. It is unclear whether the user needs to search for book details. The nature of the library catalogue system is unclear (card or computer; functionality?). Details of book code and loan category unclear. Meaning of availability unclear (present in library or held in stock?). Many activities implied, but not specified (book search, joining library, etc.)
+2. The basic doing activities in the text are in a logical order (obtain details of book, obtain code and location, find book, return book). However, some of the supporting activities are out of sequence and fall at the end of the text (opening times of library and information about joining).
+3. The root definition concentrates on the process of borrowing a book—this is at odds with the title of the target text (‘Borrowing Regulations for a Public Library’). There are a number of missing activities in Model 1 (join library, appreciate functionality of library catalogue system, appreciate books are located in library by code, receive notification of book availability, check out book). Several activities have been more clearly specified in Model 2 (obtain details of book, use library catalogue system, reserve book, appreciate loan regulations).
+
+The application of STAM has enabled a recoverable textual analysis of the target text. The analysis has supported an evaluation, which has uncovered several ‘weaknesses’ in the target text in terms of the quality of textual description, the structure of the text and the completeness of the text. It is clear a new text could be created at this point which would avoid such perceived weaknesses. It is worth remembering the weaknesses identified in the target text are dependent upon (a) the application of the method by the analyst and (b) the assumption the text ought to be constructed according to the underlying structure of HAS models. The analysis is ‘recoverable’ in the sense an interested observer can see the assumptions and interpretation involved in the author’s analysis.
+
+# CONCLUDING REMARKS
+
+This paper presents a textual analysis methodology which utilizes the HAS concept from SSM (Checkland, 1981; Wilson, 1984) together with a modified version of the HAS modelling language. Textual analysis is a core activity for researchers in a number of academic disciplines within management, the arts and social sciences and therefore STAM has a wide range of potential application areas. Of particular relevance, however, are interpretive approaches to management research, applied discourse analysis and the softer end of Operational Research/Management Science practice.
+
+Despite the large number of potential application areas, STAM is presented in this paper in a form suitable for the analysis of a particular type of text; namely, texts which constitute formal descriptions of processes or methodologies. This is to enable detailed exposition of the methodology and to accurately document its initial period of development.
+
+The paper outlines the research programme of STAM, which involved a literature review of textual analysis, piloting of STAM by the author on several texts and testing of the method on other users. The paper then gives a brief historical overview of textual analysis within the traditions of hermeneutics and linguistics in order to support the argument that it is feasible and desirable to develop approaches to textual analysis which balance the objective and subjective elements of the process. The notion of a ‘recoverable’ textual analysis using HAS modelling is presented as a solution to the problem of how to achieve this balance in practice.
+
+The paper then presents a detailed description of STAM. Key features are its use of a systemic concept as a holistic interpretative device and a systems modelling language to provide analytical rigor. The systemic concept and modelling.
+
+Copyright © 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+# RESEARCH PAPER
+
+# Syst. Res.
+
+language are modiﬁed versions of the HAS language taken from SSM. The underlying logic of the approach is that (a) textual data can be usefully conceptualized as a system and (b) the HAS modelling language represents a rigorous tool for constructing a recoverable analysis of the textual data.
+
+The research programme STAM is also examining three other potential areas of application.
+
+First, STAM can be used to support the comparison of different texts. Second, STAM can be used in a more interpretative or creative mode in order to (a) redesign existing texts, (b) design new texts and (c) generate rigorous alternative interpretations of textual data based upon explicit theoretical positions or ‘world-views’. Third, the approach can make a useful contribution to the growing use of systems modelling and PSMs within qualitative and applied research projects.
+
+# REFERENCES
+
+Brown SD. 1999. Stress as regimen: critical readings of self-help literature. In Applied Discourse Analysis: Social and Psychological Interventions, Willig C (ed.). Open University Press: Buckingham.
+
+Brown B, Yule G. 1983. Discourse Analysis. Cambridge University Press: Cambridge.
+
+Burrell G, Morgan G. 1979. Sociological Paradigms and Organisational Analysis: Elements of the Sociology of Corporate Life. Heinemann Educational Books: UK.
+
+Checkland PB. 1981. Systems Thinking, Systems Practice. Wiley & Sons: Chichester.
+
+Checkland PB. 1997. Rhetoric and reality in contracting: research in and on the NHS. In Contracting for Health, Flyn R, Williams G (eds). Oxford University Press: London.
+
+Checkland PB, Holwell S. 1998. Action research: its nature and validity. Systemic Practice and Action Research 11(1): 9–21.
+
+Checkland PB, Scholes J. 1999. Soft Systems Methodology in Action. Wiley and Sons: Chichester.
+
+de Meij Garcı´a-Montoya LF. 1997. Systemic Narratives: A Study of an Information System for the Colombian Coffee Industry. PhD Thesis, University of Lincoln.
+
+Enkvist NE. 1989. From text to interpretability. A contribution to the discussion of basic terms in text linguistics. In Connexity and Coherence: Analysis of Text and Discourse, Heydrich W, Petoﬁ JS, Neuballer F, Sozer E (eds). Walter de Gruyter: Berlı´n y Neuva York; 369–382.
+
+Franco LA, Hindle GA. 2007. Application and Evaluation of a Multi-Methodology Intervention. Operational Research Society Conference, Edinburgh.
+
+Gadamer HG. 1994. Truth and Method, Weinsheimer J, Marshall DG (trans.). Continuum: New York.
+
+Hindle G. 2003. Developing a Systemic Textual Analysis Method based on the Human Activity System Modelling Language of Soft Systems Methodology. PhD Thesis, University of Lincoln.
+
+Hindle A, Checkland PB, Mumford M, Worthington D. 1995. Developing a methodology for multidisciplinary action research: a case study. Journal of the Operational Research Society 46: 4.
+
+Jackson M. 2003. Systems Thinking: Creative Holism for Managers. Wiley and Sons: Chichester.
+
+Jenkins GM. 1969. The systems approach. Journal of Systems Engineering 1: 1.
+
+Lehtonen M. 2000. The Cultural Analysis of Texts. Sage Publications: London.
+
+Martinich AP. 1996. The Philosophy of Language. Oxford University Press: Oxford.
+
+Mueller-Vollmer K. 1994. The Hermeneutics Reader: Texts of the German Tradition From the Enlightenment to the Present. Continuum: New York.
+
+Nunan D. 1993. Introducing Discourse Analysis. Penguin: London.
+
+Pidd M. 2003. Tools for Thinking: Modeling in management science. Chichester: Wiley.
+
+Rosenhead J, Mingers J (eds). 2001. Rational Analysis for a Problematic World Revisited: Problem Structuring Methods for Complexity, Uncertainty and Conﬂict. Wiley & Sons: Chichester.
+
+Sinclair JM. 1994. Trust the text. In Advances in Written Text Analysis, Coulthard M (ed.). Routledge: London.
+
+Willig C (ed.). 1999. Applied Discourse Analysis: Social and Psychological Interventions. Open University Press: Buckingham.
+
+Wilson B. 1984. Systems: Concepts, Methodologies, and Applications. Wiley & Sons: Chichester.
+
+Youle G. 1996. The Study of Language. Cambridge University Press: Cambridge.
+
+Copyright ß 2007 John Wiley & Sons, Ltd. Syst. Res. 24, 599^612 (2007) DOI:10.1002/sres
+
+Giles A. Hindle

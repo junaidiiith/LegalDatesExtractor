@@ -1,10 +1,8 @@
 from llama_index.core import get_response_synthesizer
-from llama_index.core.schema import Document
+from app_utils.doc_processing import get_nodes_from_documents
 from app_utils.llm_embed_models import get_embed_model, get_llm, get_llm_response
 from app_utils.prompts import SUMMARIES_MERGING_PROMPT, SUMMARIZATION_PROMPT
 from settings import (
-    CHUNK_SIZE,
-    CHUNK_OVERLAP,
     chroma_data_dir    
 )
 
@@ -14,7 +12,6 @@ from llama_index.core import (
 )
 
 from llama_index.core import DocumentSummaryIndex
-from llama_index.core.node_parser import SentenceSplitter
 
 from llama_index.core.indices.document_summary import (
     DocumentSummaryIndexLLMRetriever,
@@ -26,19 +23,6 @@ import shutil
 
 
 SIMILARITY_TOP_K = 2
-
-
-def get_nodes_from_documents(data: str):
-    splitter = SentenceSplitter(
-        chunk_size=CHUNK_SIZE, 
-        chunk_overlap=CHUNK_OVERLAP
-    )
-    docs = splitter.split_text(data)
-    print("Total number of documents generated:", len(docs))
-    return [
-        Document(text=doc)
-        for doc in docs
-    ]
 
 def create_index_from_document(
     data: str, 
@@ -106,12 +90,36 @@ def get_response(
     return response
 
 
+def get_summary_messages_prompt(data: str, system_prompt: str):
+    messages = [{"role": "system", "content": system_prompt}]
+    messages.extend([{"role": "user", "content": data}])
+    return messages
+
+
 def doc_summarize_by_chunk(data: str):
     nodes = get_nodes_from_documents(data)
+    print("Summarizing document by chunk")
+        
     chunk_summaries = [
-        get_llm_response(node.text, system_prompt=SUMMARIZATION_PROMPT)
+        get_llm_response(
+            get_summary_messages_prompt(
+                node.text, system_prompt=SUMMARIZATION_PROMPT
+            )
+        )
         for node in stqdm(nodes, desc="Summarizing Document")
     ]
+    for c in chunk_summaries:
+        print("*" * 50)
+        print(c)
+        print("*" * 50)
+        
     chunk_summaries_text = "\n".join(chunk_summaries)
     
-    return get_llm_response(chunk_summaries_text, system_prompt=SUMMARIES_MERGING_PROMPT)
+    final_summary = get_llm_response(
+        get_summary_messages_prompt(
+            chunk_summaries_text, system_prompt=SUMMARIES_MERGING_PROMPT
+        )
+    )
+    print("Final Summary:", final_summary)
+    return final_summary
+
