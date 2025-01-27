@@ -17,33 +17,28 @@ from app_utils.doc_processing import (
 
 
 def refine_dates_texts():
-    current_doc = get_current_uploaded_doc()
-    doc_dates = current_doc.get("extracted_dates", None)
-
-    if not doc_dates:
+    
+    if not get_current_uploaded_doc().get("extracted_dates", None):
         print("No dates found in the document. Extracting dates...")
         get_document_dates()
-    
-    doc_dates_refined = current_doc.get("refined_dates", None)
         
-    if not doc_dates_refined:
+    if not get_current_uploaded_doc().get("refined_dates", None):
         with st.spinner("Refining dates and details..."):
-            doc_dates_refined = refine_doc_dates(doc_dates)
-            
-        current_doc["refined_dates"] = doc_dates_refined
-        set_current_uploaded_doc(current_doc)
+            print("Refining dates and details...")
+            extracted_dates = get_current_uploaded_doc().get("extracted_dates")
+            doc_dates_refined = refine_doc_dates(extracted_dates)
+            # doc_dates_refined = "Refined"
+        
+        set_current_uploaded_doc("refined_dates", doc_dates_refined)
 
 
 def get_document_dates():
-    current_doc = get_current_uploaded_doc()
-    doc = current_doc.get("doc", None)
-    if not doc or not doc.get("text", None):
+    if not get_current_uploaded_doc().get("doc", None):
         st.error("No text found in the document.")
         return
-    text = doc["text"]
-    doc_dates = current_doc.get("extracted_dates", None)
+    text = get_current_uploaded_doc().get("doc")["text"]
 
-    if not doc_dates:
+    if not get_current_uploaded_doc().get("extracted_dates", None):
         texts = [n.text for n in get_nodes_from_documents(text)]
         dated_texts = []
         for text in stqdm(texts, desc="Extracting dates and details"):
@@ -51,14 +46,14 @@ def get_document_dates():
             dated_texts.append(dated_text)
         
         doc_dates = "\n".join(dated_texts)
-        current_doc["extracted_dates"] = doc_dates
-        set_current_uploaded_doc(current_doc)
-
+        
+        set_current_uploaded_doc("extracted_dates", doc_dates)
+        
 
 def reset():
     current_doc = get_current_uploaded_doc()
-    current_doc["doc_dates"] = None
-    current_doc["doc_dates_refined"] = None
+    current_doc["extracted_dates"] = None
+    current_doc["refined_dates"] = None
  
  
 def upload_doc():
@@ -86,16 +81,19 @@ def main():
         cols[2].button("Reset Document", key="reset", on_click=reset)
         
 
-    if get_current_uploaded_doc().get("doc_dates", None):
-        with st.container():
-            doc_dates = get_current_uploaded_doc().get("doc_dates")
-            st.markdown("### Extracted dates and details\n")
-            st.write(doc_dates)
+    extracted_data = get_current_uploaded_doc().get("extracted_dates", None)
+    refined_data = get_current_uploaded_doc().get("refined_dates", None)
     
-    if get_current_uploaded_doc().get("doc_dates_refined", None):
+    if refined_data:
         with st.container():
-            doc_dates_refined = get_current_uploaded_doc().get("doc_dates_refined")
-            st.markdown("### Refined dates and details")
+            doc_dates_refined = get_current_uploaded_doc().get("refined_dates")
+            st.markdown("### Refined Dates and details")
             st.write(doc_dates_refined)
+            
+    elif extracted_data:
+        with st.container():
+            doc_dates = get_current_uploaded_doc().get("extracted_dates")
+            st.markdown("### Extracted Dates and details\n")
+            st.write(doc_dates)
 
 main()

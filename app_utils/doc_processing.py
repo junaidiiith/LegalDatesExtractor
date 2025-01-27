@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from docx import Document as DocxDocument
 from streamlit.runtime.uploaded_file_manager import UploadedFile
@@ -8,22 +9,31 @@ from settings import (
     CHUNK_OVERLAP,
 )
 from llama_index.core.node_parser import SentenceSplitter
+import uuid
 
+def create_temp_file(upload_file: UploadedFile):
+    uuid_str = str(uuid.uuid4())
+    with open(f'{uuid_str}.pdf', 'wb') as f:
+        f.write(upload_file.getvalue())
+    pdf_file = f'{uuid_str}.pdf'
+    return pdf_file
 
-def pdf_to_markdown(pdf_file):
-    # with open('test.txt', 'r') as f:
-    #     return f.read()
-    
+def pdf_to_markdown(pdf_file: UploadedFile):
+    temp_file = create_temp_file(pdf_file)
     parser = LlamaParse(
         api_key=st.secrets['LLAMA_PARSE_API_KEY'],
         result_type="markdown"
     )
-    documents = parser.load_data(pdf_file)
-    # try:
-    #     documents = parser.load_data(pdf_file)
-    # except Exception as e:
-    #     st.error(f"An error occurred while processing the document: {e}")
+    
+    try:
+        with st.spinner("Parsing document..."):
+            documents = parser.load_data(temp_file)
+    except Exception as e:
+        st.error(f"An error occurred while processing the document: {e}")
     full_text = "\n".join([d.text for d in documents])
+    
+    os.remove(temp_file)
+    
     return full_text
 
 
@@ -50,7 +60,8 @@ def get_document_text():
         }
         
     elif uploaded_doc.name.endswith(".docx"):
-        doc = DocxDocument(uploaded_doc)
+        temp_file = create_temp_file(uploaded_doc)
+        doc = DocxDocument(temp_file)
         text = "\n".join([p.text for p in doc.paragraphs if p.text.strip()])
 
         st.session_state["doc"] = {
@@ -58,6 +69,7 @@ def get_document_text():
             "text": text,
             "details": f"Number of paragraphs: {len(doc.paragraphs)}\nNumber of words: {len(' '.join([p.text for p in doc.paragraphs]).split())}"
         }
+        os.remove(temp_file)
         
     else:
         st.error("Invalid file format. Only .docx and .pdf files are supported.")
