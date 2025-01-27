@@ -1,7 +1,14 @@
 from llama_index.core import get_response_synthesizer
 from app_utils.doc_processing import get_nodes_from_documents
 from app_utils.llm_embed_models import get_embed_model, get_llm, get_llm_response
-from app_utils.prompts import DATES_EXTRACTION_PROMPT, DATES_EXTRACTION_SYS_PROMPT, DATES_REFINEMENT_PROMPT, DATES_REFINEMENT_SYS_PROMPT, SUMMARIES_MERGING_PROMPT, SUMMARIZATION_PROMPT
+from app_utils.prompts import (
+    DATES_EXTRACTION_PROMPT, 
+    DATES_EXTRACTION_SYS_PROMPT, 
+    DATES_REFINEMENT_PROMPT, 
+    DATES_REFINEMENT_SYS_PROMPT, 
+    SUMMARIES_MERGING_PROMPT, 
+    SUMMARIZATION_PROMPT
+)
 from settings import (
     chroma_data_dir    
 )
