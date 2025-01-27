@@ -1,9 +1,10 @@
 import streamlit as st
+from app_pages.common_utils import extract_doc_data, get_current_uploaded_doc, set_current_uploaded_doc
 from app_utils.doc_processing import ( 
     get_document_text,
     print_document_details
 )
-from app_utils.doc_summarization import (
+from app_utils.doc_llm_utils import (
     create_index_from_document, 
     get_response, 
     doc_summarize_by_chunk
@@ -19,11 +20,6 @@ def add_to_messages(message, role):
 def reset():
     st.session_state['messages'] = list()
 
-def get_current_uploaded_doc():
-    return st.session_state["uploaded_docs"][st.session_state["doc_file"].name]
-
-def set_current_uploaded_doc(doc):
-    st.session_state["uploaded_docs"][st.session_state["doc_file"].name] = doc
 
 def summarize_document():
     current_doc = get_current_uploaded_doc()
@@ -74,26 +70,10 @@ def create_index():
         create_index_from_document(doc_text, index_name=username)
         current_doc["indexed"] = True
         set_current_uploaded_doc(current_doc)
-    
-
-def extract_doc_data():
+\
+def upload_doc():
     reset()
-    
-    if not st.session_state.get("doc_file", None):
-        return
-    doc_file = st.session_state["doc_file"]
-    if doc_file.name in st.session_state.get("uploaded_docs", dict()):
-        print("Document already uploaded")
-        st.session_state['doc'] = st.session_state['uploaded_docs'][doc_file.name]['doc']
-        return
-    get_document_text()
-    st.session_state['uploaded_docs'][doc_file.name] = {
-        'doc': st.session_state['doc'],
-        'summary': None,
-        'indexed': False
-    }
-    print("Total uploaded docs: ", len(st.session_state['uploaded_docs']))
-    
+    extract_doc_data()
 
 
 def main():
@@ -101,7 +81,7 @@ def main():
     st.session_state["uploaded_docs"] = st.session_state.get("uploaded_docs", dict())
     st.title("PDF Document Summarization")
 
-    st.file_uploader("Upload a document", type=["docx", "pdf", "txt"], key="doc_file", on_change=extract_doc_data)
+    st.file_uploader("Upload a document", type=["docx", "pdf", "txt"], key="doc_file", on_change=upload_doc)
     doc = st.session_state.get("doc_file", None)
  
 

@@ -1,153 +1,101 @@
 import streamlit as st
-
-import openai
 from stqdm import stqdm
 
+from app_pages.common_utils import (
+    extract_doc_data, 
+    get_current_uploaded_doc, 
+    set_current_uploaded_doc
+)
+from app_utils.doc_llm_utils import (
+    extract_doc_dates, 
+    refine_doc_dates
+)
 from app_utils.doc_processing import (
-    get_document_text, 
     print_document_details, 
     get_nodes_from_documents
 )
-from settings import CHUNK_OVERLAP, CHUNK_SIZE
-
-
-model = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-system_prompt = {
-    "role": "system", 
-    "content": "You are an expert in reading legal criminal cases and you need to extract the dates and the details about what happened on that date."
-}
-
-
-def get_dates_details(text, messages=None):
-	if messages is None:
-		messages = [system_prompt]
-
-	prompt = \
-	f"""
-	You need to extract the dates and the details about what happened on that date. 
-	Provide empty string in case there are no dates present.
-	Any date that involves an event should be extracted.
-
-	Extract the dates from the following text:
-	{text}
-
-	Example: 
-	Input: The present reference is an abuse of the process. 
-	The claimants, on an earlier occasion, had initiated another Arbitration reference, involving disputes purportedly arising out of the self same agreement dated 10th November, 2008, against the present respondents, which ultimately resulted into an Award dated 5th May, 2022.  
-
-	Output:
-	- 10th November, 2008: The claimants initiated an Arbitration reference involving disputes purportedly arising out of the self same agreement.
-	- 5th May, 2022: The Arbitration reference resulted into an Award.
-	"""
-	response = model.chat.completions.create(
-		model="gpt-4o",
-		messages=messages + [
-			{"role": "user", "content": prompt}
-		],
-	)
-	ai_response = response.choices[0].message.content
-	# time.sleep(0.01)
-	# ai_response = "Good job! You have successfully extracted the dates and the details about what happened on that date."
-	messages.append({"role": "assistant", "content": ai_response})
-	
-	return messages
 
 
 def refine_dates_texts():
-	doc_dates = st.session_state.get("doc_dates", None)
+    current_doc = get_current_uploaded_doc()
+    doc_dates = current_doc.get("extracted_dates", None)
 
-	if not doc_dates:
-		st.error("No document dates found.")
-		return
-	
-	doc_dates_refined = st.session_state.get("doc_dates_refined", None)
-		
-	if not doc_dates_refined:
-		prompt = \
-		f"""
-		You are provided with a list of dates and what happened on those dates.
-		The event on all these dates may be interconnected and therefore some date might be missing some information.
-		You need to refine the the details about what happened on each date from the following text:
-		{doc_dates}
-		"""
-		with st.spinner("Refining dates and details..."):
-			# time.sleep(1)
-			response = model.chat.completions.create(
-				model="gpt-4o",
-				messages=[
-					{"role": "system", "content": "You are an expert in reading legal criminal cases and finding the missing details about the dates and events."},
-					{"role": "user", "content": prompt},
-				],
-			)
-			doc_dates_refined = response.choices[0].message.content
-			# doc_dates_refined = "Amazing! You have successfully refined the details about what happened on each date."
-			
-		st.session_state["doc_dates_refined"] = doc_dates_refined
+    if not doc_dates:
+        print("No dates found in the document. Extracting dates...")
+        get_document_dates()
+    
+    doc_dates_refined = current_doc.get("refined_dates", None)
+        
+    if not doc_dates_refined:
+        with st.spinner("Refining dates and details..."):
+            doc_dates_refined = refine_doc_dates(doc_dates)
+            
+        current_doc["refined_dates"] = doc_dates_refined
+        set_current_uploaded_doc(current_doc)
 
 
 def get_document_dates():
-	doc = st.session_state.get("doc", None)
-	if not doc or not doc.get("text", None):
-		st.error("No text found in the document.")
-		return
-	text = doc["text"]
-	doc_dates = st.session_state.get("doc_dates", None)
+    current_doc = get_current_uploaded_doc()
+    doc = current_doc.get("doc", None)
+    if not doc or not doc.get("text", None):
+        st.error("No text found in the document.")
+        return
+    text = doc["text"]
+    doc_dates = current_doc.get("extracted_dates", None)
 
-	if not doc_dates:
-		texts = [n.text for n in get_nodes_from_documents(text)]
-		messages = None
-
-		for text in stqdm(texts, desc="Extracting dates and details"):
-			messages = get_dates_details(text, messages=messages)
-		
-		doc_dates = "\n".join([m['content'] for m in messages if m['role'] == 'assistant'])
-		st.session_state["doc_dates"] = doc_dates
+    if not doc_dates:
+        texts = [n.text for n in get_nodes_from_documents(text)]
+        dated_texts = []
+        for text in stqdm(texts, desc="Extracting dates and details"):
+            dated_text = extract_doc_dates(text)
+            dated_texts.append(dated_text)
+        
+        doc_dates = "\n".join(dated_texts)
+        current_doc["extracted_dates"] = doc_dates
+        set_current_uploaded_doc(current_doc)
 
 
 def reset():
-	st.session_state["doc"] = None
-	st.session_state["doc_dates"] = None
-	st.session_state["doc_dates_refined"] = None
-	
+    current_doc = get_current_uploaded_doc()
+    current_doc["doc_dates"] = None
+    current_doc["doc_dates_refined"] = None
  
  
-def extract_doc_data():
+def upload_doc():
     reset()
-    get_document_text()
+    extract_doc_data()
 
- 
     
 def main():
-	st.title("Legal Document Dates Extractor")
+    st.title("Legal Document Dates Extractor")
 
-	# with st.expander("Size of text to process at once"):
-	# 	cols = st.columns(2)
-	# 	cols[0].number_input("Chunk size", value=5000, key="chunk_size", help="The size of the text to be processed at a time. Default is 5000.")
-	# 	cols[1].number_input("Chunk overlap", value=100, key="chunk_overlap", help="The overlap between chunks. Default is 50.")
+    # with st.expander("Size of text to process at once"):
+    # 	cols = st.columns(2)
+    # 	cols[0].number_input("Chunk size", value=5000, key="chunk_size", help="The size of the text to be processed at a time. Default is 5000.")
+    # 	cols[1].number_input("Chunk overlap", value=100, key="chunk_overlap", help="The overlap between chunks. Default is 50.")
 
-	st.file_uploader("Upload a document", type=["docx", "pdf"], key="doc_file", on_change=extract_doc_data)
-	doc = st.session_state.get("doc_file", None)
-	
-	extract_dates, refine_dates = False, False
-	if doc:
-		print_document_details()
-		cols = st.columns(3)
-		
-		extract_dates = cols[0].button("Extract dates and details", key="extract_dates", on_click=get_document_dates)
-		refine_dates = cols[1].button("Refine dates and details", key="refine_dates", on_click=refine_dates_texts)
-		cols[2].button("Reset Document", key="reset", on_click=reset)
-		
+    st.file_uploader("Upload a document", type=["docx", "pdf"], key="doc_file", on_change=upload_doc)
+    doc = st.session_state.get("doc_file", None)
+    
+    if doc:
+        print_document_details()
+        cols = st.columns(3)
+        
+        cols[0].button("Extract dates and details", key="extract_dates", on_click=get_document_dates)
+        cols[1].button("Refine dates and details", key="refine_dates", on_click=refine_dates_texts)
+        cols[2].button("Reset Document", key="reset", on_click=reset)
+        
 
-	if extract_dates or st.session_state.get("doc_dates", None):
-		with st.container():
-			doc_dates = st.session_state.get("doc_dates")
-			st.markdown("### Extracted dates and details\n" + doc_dates)
-			st.session_state["doc_dates"] = doc_dates
-	
-	if refine_dates or st.session_state.get("doc_dates_refined", None):
-		with st.container():
-			doc_dates_refined = st.session_state.get("doc_dates_refined")
-			st.markdown("### Refined dates and details")
-			st.write(doc_dates_refined)
+    if get_current_uploaded_doc().get("doc_dates", None):
+        with st.container():
+            doc_dates = get_current_uploaded_doc().get("doc_dates")
+            st.markdown("### Extracted dates and details\n")
+            st.write(doc_dates)
+    
+    if get_current_uploaded_doc().get("doc_dates_refined", None):
+        with st.container():
+            doc_dates_refined = get_current_uploaded_doc().get("doc_dates_refined")
+            st.markdown("### Refined dates and details")
+            st.write(doc_dates_refined)
 
 main()
