@@ -11,6 +11,7 @@ from settings import (
 from llama_index.core.node_parser import SentenceSplitter
 import uuid
 
+
 def create_temp_file(upload_file: UploadedFile):
     uuid_str = str(uuid.uuid4())
     with open(f'{uuid_str}.pdf', 'wb') as f:
