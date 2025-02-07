@@ -73,7 +73,7 @@ def get_document_text():
         os.remove(temp_file)
         
     else:
-        st.error("Invalid file format. Only .docx and .pdf files are supported.")
+        st.error(f"Invalid file format {uploaded_doc.name}. Only .docx and .pdf files are supported.")
         return
 
 
