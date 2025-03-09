@@ -7,7 +7,9 @@ from app_utils.prompts import (
     DATES_REFINEMENT_PROMPT, 
     DATES_REFINEMENT_SYS_PROMPT, 
     SUMMARIES_MERGING_PROMPT, 
-    SUMMARIZATION_PROMPT
+    SUMMARIZATION_PROMPT,
+    SYNOPSIS_PROMPT,
+    SYNOPSIS_SYS_PROMPT
 )
 from settings import (
     chroma_data_dir    
@@ -144,6 +146,15 @@ def refine_doc_dates(data: str):
     messages = [
         {'role': 'system', 'content': DATES_REFINEMENT_SYS_PROMPT},
         {'role': 'user', 'content': DATES_REFINEMENT_PROMPT.format(doc_dates=data)}
+    ]
+    response = get_llm_response(messages)
+    return response
+
+
+def get_doc_synopsis(data: str):
+    messages = [
+        {'role': 'system', 'content': SYNOPSIS_SYS_PROMPT},
+        {'role': 'user', 'content': SYNOPSIS_PROMPT.format(doc_dates=data)}
     ]
     response = get_llm_response(messages)
     return response

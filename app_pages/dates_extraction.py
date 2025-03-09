@@ -8,7 +8,8 @@ from app_pages.common_utils import (
 )
 from app_utils.doc_llm_utils import (
     extract_doc_dates, 
-    refine_doc_dates
+    refine_doc_dates,
+    get_doc_synopsis
 )
 from app_utils.doc_processing import (
     print_document_details, 
@@ -48,12 +49,27 @@ def get_document_dates():
         doc_dates = "\n".join(dated_texts)
         
         set_current_uploaded_doc("extracted_dates", doc_dates)
+    
+
+def get_synopsis():
+    get_document_dates()
+    
+    if not get_current_uploaded_doc().get("synopsis", None):
+        with st.spinner("Creating synopsis..."):
+            print("Creating synopsis...")
+            extracted_dates = get_current_uploaded_doc().get("extracted_dates")
+            doc_synopsis = get_doc_synopsis(extracted_dates)
         
+        set_current_uploaded_doc("synopsis", doc_synopsis)
+    
+
 
 def reset():
     current_doc = get_current_uploaded_doc()
     current_doc["extracted_dates"] = None
     current_doc["refined_dates"] = None
+    
+    
  
  
 def upload_doc():
@@ -74,17 +90,25 @@ def main():
     
     if doc:
         print_document_details()
-        cols = st.columns(3)
+        cols = st.columns(4)
         
         cols[0].button("Extract dates and details", key="extract_dates", on_click=get_document_dates)
         cols[1].button("Refine dates and details", key="refine_dates", on_click=refine_dates_texts)
-        cols[2].button("Reset Document", key="reset", on_click=reset)
+        cols[2].button("Get Synopsis", key="synopsis", on_click=get_synopsis)
+        cols[3].button("Reset Document", key="reset", on_click=reset)
         
 
     extracted_data = get_current_uploaded_doc().get("extracted_dates", None)
     refined_data = get_current_uploaded_doc().get("refined_dates", None)
+    synopis = get_current_uploaded_doc().get("synopsis", None)
     
-    if refined_data:
+    if synopis:
+        with st.container():
+            synopis = get_current_uploaded_doc().get("synopsis")
+            st.markdown("### Synopsis")
+            st.write(synopis)
+    
+    elif refined_data:
         with st.container():
             doc_dates_refined = get_current_uploaded_doc().get("refined_dates")
             st.markdown("### Refined Dates and details")

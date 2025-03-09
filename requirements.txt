@@ -13,3 +13,6 @@ chromadb
 llama-index-llms-fireworks
 llama-index-embeddings-fireworks
 llama-index-embeddings-openai
+pytesseract
+pdf2image
+pymupdf
