@@ -66,17 +66,18 @@ Below are the dates and the events that happened on those dates. You need to cre
 THE SYNOPSIS IS the key dates which leads upto filing of the case and the events that happened on those dates.
 
 You the below example as a reference format for creating the synopsis.
+The synopsis should be accurate and should not contain any false information.
+The synopsis should first contain a paragraph describing the key dates and events that lead upto the filing of the case.
+The synopsis should then contain a list of dates and the events that happened on those dates as a table.
+Below is an example of a synopsis.
 
 --- Example of a synopsis ---
 
 # Synopsis
 
 The Opposite Party no.2 got married to Inderjeet Singh, being the son of petitioner no. 1 and brother of petitioner no. 2, according to Sikh rites and customs on **26.01.2024**. She was admitted to the hospital for her liver treatment in **March 2014** after which she never returned to her matrimonial home.  
-
 After almost **10 years**, on **08.02.2024**, the opposite party no. 2 lodged **Asansol (Women) Police Station Case No. 07 of 2024** against the petitioners alleging offences under **Sections 498A/323/406 of the Indian Penal Code** and **3/4 of the Dowry Prohibition Act**.  
-
 **Charge Sheet No. 45 of 2024** was submitted by the Investigating Agency, alleging offences under **sections 498A/323/406 of the Indian Penal Code** and **3/4 of the Dowry Prohibition Act** on **26.06.2024**.  
-
 Being aggrieved by the continuation of the instant case, the petitioners are preferring this criminal revisional application.
 
 ---
@@ -100,6 +101,7 @@ Being aggrieved by the continuation of the instant case, the petitioners are pre
 
 --- End of a synopsis ---
 
-Below are the dates and the events that happened on those dates - 
+
+Below are the dates and the events that happened on those dates. Provide the synoposis the above format - 
 {doc_dates}
 """
